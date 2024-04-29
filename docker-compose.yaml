@@ -1,0 +1,10 @@
+services:
+  nagios-core:
+    build: .
+    container_name: nagios-core
+    ports:
+      - 80:80
+    image: "nagios-core:v1.0"
+    hostname: nagios-core
+    volumes:
+      - ./config:/usr/local/nagios
