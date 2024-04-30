@@ -62,7 +62,6 @@ RUN apt-get update && apt-get upgrade -y \
     tini \
     tzdata \
     unzip \
-    vim \
     wget
 RUN apt clean
 # Add Users and Groups

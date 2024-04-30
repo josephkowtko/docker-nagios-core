@@ -4,7 +4,7 @@ services:
     container_name: nagios-core
     ports:
       - 80:80
-    image: "nagios-core:v1.0"
+    image: "nagios-core:latest"
     hostname: nagios-core
-    volumes:
-      - ./config:/usr/local/nagios
+#    volumes:
+#      - ./config:/usr/local/nagios
