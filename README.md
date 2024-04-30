@@ -1,17 +1,19 @@
 # Baseline Nagios Core
 
 ## Core Components
+
 - Base Image: *ubuntu:latest*
 - Nagios Core: *nagios-4.5.1.tar.gz*
 - Nagios Plugins: *nagios-plugins-2.4.9.tar.gz*
 
 ## Nagios Website Credentials
+
 - User: nagiosadmin
 - Password: P@55w0rd!
 
 ## Dockerfile
 
-```
+```sh
 # syntax=docker/dockerfile:1
 # Use the Latest Ubuntu Image
 FROM ubuntu:latest
@@ -110,9 +112,10 @@ WORKDIR /
 EXPOSE 80
 ENTRYPOINT ["/usr/bin/tini", "--", "./entrypoint.sh"]
 ```
+
 ## Entrypoint Script
 
-```
+```sh
 #!/bin/bash
 
 ###################
@@ -168,12 +171,14 @@ monitor_processes() {
 
 monitor_processes
 ```
+
 ## Recommended Employment
+
 This image contains the baseline configuration of Nagios.  I would recommend running the container without any volume mounts, copying the contents of the folder ```/usr/local/nagios``` out of the container, and mounting it as a volume to the container so changes to the configuration will persist container stops and starts or even image rebuilds.  That can be done by using the the docker copy command.  An example of how this would look in ```docker-compose.yaml``` would be:
 
 **NOTE: This assumes a folder named** ```config``` **in the . location.**
 
-```
+```sh
 services:
   nagios-core:
     build: .
@@ -187,7 +192,9 @@ services:
 ```
 
 ## How to Build
+
 To set up to build this image, simply place the following files in a single folder:
+
 - Dockerfile
 - entrypoint.sh
 - docker-compose.yaml
@@ -200,8 +207,6 @@ To build the image type the following:
 
 To run the image in docker using docker compose type the following:
 
-``` docker compose up -d```
+```docker compose up -d```
 
 **NOTE: If you run the container using the volume mount to the host, the files must exist in the folder called** ```config``` **in the same folder that contains all of the contents of the original Nagios Core installation.**
-
-
