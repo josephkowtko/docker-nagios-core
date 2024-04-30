@@ -23,11 +23,9 @@ RUN apt-get update && apt-get upgrade -y \
     build-essential \
     daemon \
     dc \
-    dnsutils \
     gawk \
     gettext \
     gcc \
-    iputils-ping \
     libapache2-mod-php \
     libc6 \
     libc6-dev \
@@ -37,7 +35,6 @@ RUN apt-get update && apt-get upgrade -y \
     libperl-dev \
     libssl-dev \
     make \
-    net-tools \
     openssl \
     perl \
     php \
@@ -46,7 +43,6 @@ RUN apt-get update && apt-get upgrade -y \
     tini \
     tzdata \
     unzip \
-    vim \
     wget
 RUN apt clean
 # Add Users and Groups
