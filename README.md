@@ -133,6 +133,7 @@ apachectl -D FOREGROUND &
 /usr/local/nagios/bin/nagios -d /usr/local/nagios/etc/nagios.cfg &
 
 ## Give processes time to start
+
 sleep 10
 
 #############################
