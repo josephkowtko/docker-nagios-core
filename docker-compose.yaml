@@ -4,8 +4,8 @@ services:
     container_name: nagios-core
     ports:
       - 80:80
-    image: "nagios-core:latest"
+    image: "jtkowtko/nagios-core:latest"
     hostname: nagios-core
     restart: always
-#    volumes:
-#      - ./config:/usr/local/nagios
+    volumes:
+      - ./config:/usr/local/nagios/

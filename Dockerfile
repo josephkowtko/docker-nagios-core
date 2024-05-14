@@ -79,6 +79,10 @@ WORKDIR /tmp/nagios-plugins-${NAGPLUGVER}
 RUN ./configure --with-nagios-user=${NAGUSER} --with-nagios-group=${NAGUSER} --with-openssl
 RUN make
 RUN make install
+# Create Custom Folder and Set Permissions
+WORKDIR /
+RUN mkdir /usr/local/nagios/etc/custom
+RUN chown -R ${NAGUSER}:${NAGUSER} /usr/local/nagios
 # Configure Apache2 for Nagios
 WORKDIR /
 RUN ln -s /etc/apache2/sites-available/nagios.conf /etc/apache2/sites-enabled/

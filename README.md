@@ -95,6 +95,10 @@ WORKDIR /tmp/nagios-plugins-${NAGPLUGVER}
 RUN ./configure --with-nagios-user=${NAGUSER} --with-nagios-group=${NAGUSER} --with-openssl
 RUN make
 RUN make install
+# Create Custom Folder and Set Permissions
+WORKDIR /
+RUN mkdir /usr/local/nagios/etc/custom
+RUN chown -R ${NAGUSER}:${NAGUSER} /usr/local/nagios
 # Configure Apache2 for Nagios
 WORKDIR /
 RUN ln -s /etc/apache2/sites-available/nagios.conf /etc/apache2/sites-enabled/
@@ -129,7 +133,8 @@ apachectl -D FOREGROUND &
 /usr/local/nagios/bin/nagios -d /usr/local/nagios/etc/nagios.cfg &
 
 ## Give processes time to start
-sleep 7
+
+sleep 10
 
 #############################
 # Monitor Apache and Nagios #
@@ -185,7 +190,7 @@ services:
     container_name: nagios-core
     ports:
       - 80:80
-    image: "nagios-core:v1.0"
+    image: "jtkowtko/nagios-core:latest"
     hostname: nagios-core
     restart: always
     volumes:

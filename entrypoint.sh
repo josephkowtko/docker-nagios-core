@@ -11,7 +11,8 @@ apachectl -D FOREGROUND &
 /usr/local/nagios/bin/nagios -d /usr/local/nagios/etc/nagios.cfg &
 
 ## Give processes time to start
-sleep 7
+
+sleep 10
 
 #############################
 # Monitor Apache and Nagios #
