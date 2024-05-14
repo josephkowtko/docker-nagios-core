@@ -187,6 +187,7 @@ services:
       - 80:80
     image: "nagios-core:v1.0"
     hostname: nagios-core
+    restart: always
     volumes:
       - ./config:/usr/local/nagios
 ```
