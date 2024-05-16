@@ -57,9 +57,9 @@ RUN usermod -a -G ${NAGCMDUSER} ${NAGUSER}
 RUN usermod -a -G ${NAGCMDUSER} ${APACHEUSER}
 # Copy Required Files Into Container
 WORKDIR /
-COPY nagios-${NAGCOREVER}.tar.gz /tmp/nagios-${NAGCOREVER}.tar.gz
-COPY nagios-plugins-${NAGPLUGVER}.tar.gz /tmp/nagios-plugins-${NAGPLUGVER}.tar.gz
-COPY entrypoint.sh /entrypoint.sh
+COPY ./nagios-${NAGCOREVER}.tar.gz /tmp/nagios-${NAGCOREVER}.tar.gz
+COPY ./nagios-plugins-${NAGPLUGVER}.tar.gz /tmp/nagios-plugins-${NAGPLUGVER}.tar.gz
+COPY ./entrypoint.sh ./entrypoint.sh
 RUN chmod +x /entrypoint.sh
 # Extract Nagios and Nagios Plugins
 WORKDIR /tmp
@@ -83,6 +83,7 @@ RUN make install
 WORKDIR /
 RUN mkdir /usr/local/nagios/etc/custom
 RUN chown -R ${NAGUSER}:${NAGUSER} /usr/local/nagios
+RUN chown -R ${NAGUSER}:${NAGCMDUSER} /usr/local/nagios/var/rw
 # Configure Apache2 for Nagios
 WORKDIR /
 RUN ln -s /etc/apache2/sites-available/nagios.conf /etc/apache2/sites-enabled/
@@ -95,6 +96,8 @@ RUN rm -rf /tmp/nagios-${NAGCOREVER}
 RUN rm /tmp/nagios-${NAGCOREVER}.tar.gz
 RUN rm -rf /tmp/nagios-plugins-${NAGPLUGVER}
 RUN rm /tmp/nagios-plugins-${NAGPLUGVER}.tar.gz
+RUN truncate -s 0 /usr/local/nagios/var/*.*
+RUN rm -rf /usr/local/nagios/var/archive/*
 # Start Container Processes
 WORKDIR /
 EXPOSE 80
