@@ -193,7 +193,7 @@ services:
     container_name: nagios-core
     ports:
       - 80:80
-    image: "jtkowtko/nagios-core:latest"
+    image: "jtkowtko/nagios-core:1.1"
     hostname: nagios-core
     restart: always
     volumes:
