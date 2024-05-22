@@ -3,8 +3,8 @@
 ## Core Components
 
 - Base Image: *ubuntu:latest*
-- Nagios Core: *nagios-4.5.1.tar.gz*
-- Nagios Plugins: *nagios-plugins-2.4.9.tar.gz*
+- Nagios Core: *nagios-4.5.2.tar.gz*
+- Nagios Plugins: *nagios-plugins-2.4.10.tar.gz*
 
 ## Nagios Website Credentials
 
@@ -21,8 +21,8 @@ FROM ubuntu:latest
 USER root
 WORKDIR /
 ARG DEBIAN_FRONTEND=noninteractive
-ARG NAGCOREVER=4.5.1
-ARG NAGPLUGVER=2.4.9
+ARG NAGCOREVER=4.5.2
+ARG NAGPLUGVER=2.4.10
 ARG NAGADMIN=nagiosadmin
 ARG NAGADMINPW=P@55w0rd!
 ARG NAGUSER=nagios
