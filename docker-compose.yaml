@@ -8,4 +8,4 @@ services:
     hostname: nagios-core
     restart: always
 #    volumes:
-#      - ./config/nagios:/usr/local/nagios/
+#      - ./4.5.2/nagios:/usr/local/nagios/
