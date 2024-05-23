@@ -1,11 +1,11 @@
 services:
   nagios-core:
     build: .
-    container_name: nagios-core
+    container_name: nagios-core-4.5.2
     ports:
       - 80:80
     image: "jtkowtko/nagios-core:latest"
     hostname: nagios-core
     restart: always
-    volumes:
-      - ./config:/usr/local/nagios/
+#    volumes:
+#      - ./config/nagios:/usr/local/nagios/
