@@ -207,8 +207,8 @@ To set up to build this image, simply place the following files in a single fold
 - Dockerfile
 - entrypoint.sh
 - docker-compose.yaml
-- nagios-4.5.2.tar.gz
-- nagios-plugins-2.4.10.tar.gz
+- nagios-4.5.4.tar.gz
+- nagios-plugins-2.4.11.tar.gz
 
 To build the image type the following:
 
