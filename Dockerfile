@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
-# Use the Latest Ubuntu Image
-FROM ubuntu:latest
+# Use the Ubuntu Jammy (22.04) Image
+FROM ubuntu:jammy
 # Set Initial User, Working Directory, and Environment
 USER root
 WORKDIR /
