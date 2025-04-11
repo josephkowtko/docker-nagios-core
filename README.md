@@ -3,7 +3,7 @@
 ## Core Components
 
 - Base Image: *ubuntu:latest*
-- Nagios Core: *nagios-4.5.4.tar.gz*
+- Nagios Core: *nagios-4.5.9.tar.gz*
 - Nagios Plugins: *nagios-plugins-2.4.11.tar.gz*
 
 ## Nagios Website Credentials
@@ -21,7 +21,7 @@ FROM ubuntu:latest
 USER root
 WORKDIR /
 ARG DEBIAN_FRONTEND=noninteractive
-ARG NAGCOREVER=4.5.4
+ARG NAGCOREVER=4.5.9
 ARG NAGPLUGVER=2.4.11
 ARG NAGADMIN=nagiosadmin
 ARG NAGADMINPW=P@55w0rd!
@@ -207,7 +207,7 @@ To set up to build this image, simply place the following files in a single fold
 - Dockerfile
 - entrypoint.sh
 - docker-compose.yaml
-- nagios-4.5.4.tar.gz
+- nagios-4.5.9.tar.gz
 - nagios-plugins-2.4.11.tar.gz
 
 To build the image type the following:
